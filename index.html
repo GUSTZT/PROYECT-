@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>NEXUS LIBRARY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">N</span>
+      <div>
+        <h1>NEXUS <span>LIBRARY</span></h1>
+        <small>Tu universo de lectura</small>
+      </div>
+    </div>
+    <button class="login-button" id="authButton">Iniciar sesión</button>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section class="screen active" id="inicio">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">BIENVENIDO A NEXUS</span>
+          <h2>Un universo de historias <span>te espera.</span></h2>
+          <p>Descubre libros, explora nuevos mundos y comparte tus propias historias.</p>
+          <button class="primary-button" data-go="explorar">Explorar biblioteca</button>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PARA COMENZAR</span>
+          <h2>Libros destacados</h2>
+        </div>
+        <button class="text-button" data-go="explorar">Ver todos</button>
+      </div>
+      <div class="book-grid" id="featuredBooks"></div>
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">DESCUBRE</span>
+          <h2>Categorías</h2>
+        </div>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Novelas">📖<span>Novelas</span></button>
+        <button class="category-card" data-category="Filosofía">🧠<span>Filosofía</span></button>
+        <button class="category-card" data-category="Realismo mágico">✨<span>Realismo mágico</span></button>
+        <button class="category-card" data-category="Comedia">😂<span>Comedia</span></button>
+        <button class="category-card" data-category="Manga">🎌<span>Manga</span></button>
+        <button class="category-card" data-category="Terror">👻<span>Terror</span></button>
+        <button class="category-card" data-category="Ciencia ficción">🚀<span>Ciencia ficción</span></button>
+        <button class="category-card" data-category="Historia">🏛️<span>Historia</span></button>
+        <button class="category-card" data-category="Educación">🎓<span>Educación</span></button>
+        <button class="category-card" data-category="Desarrollo personal">🌱<span>Desarrollo personal</span></button>
+      </div>
+    </section>
+
+    <!-- EXPLORAR -->
+    <section class="screen" id="explorar">
+      <div class="page-heading">
+        <span class="eyebrow">CATÁLOGO</span>
+        <h2>Explora la biblioteca</h2>
+        <p>Encuentra tu próxima lectura favorita.</p>
+      </div>
+
+      <div class="search-container">
+        <span>⌕</span>
+        <input type="search" id="searchInput" placeholder="Buscar libros o autores...">
+      </div>
+
+      <div class="filter-list" id="categoryFilters">
+        <button class="filter-button active" data-category="Todos">Todos</button>
+        <button class="filter-button" data-category="Novelas">Novelas</button>
+        <button class="filter-button" data-category="Filosofía">Filosofía</button>
+        <button class="filter-button" data-category="Realismo mágico">Realismo mágico</button>
+        <button class="filter-button" data-category="Comedia">Comedia</button>
+        <button class="filter-button" data-category="Manga">Manga</button>
+        <button class="filter-button" data-category="Terror">Terror</button>
+        <button class="filter-button" data-category="Ciencia ficción">Ciencia ficción</button>
+        <button class="filter-button" data-category="Historia">Historia</button>
+        <button class="filter-button" data-category="Educación">Educación</button>
+        <button class="filter-button" data-category="Desarrollo personal">Desarrollo personal</button>
+      </div>
+
+      <div id="catalogSections">
+        <section class="catalog-section">
+          <h3>Novelas</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Noches blancas Fiodor Dostoyevski" alt="Portada de Noches blancas">
+              <div class="book-info"><h4>Noches blancas</h4><p>Fiódor Dostoyevski</p><span>Novelas</span></div>
+              <button class="save-book" data-save="Noches blancas">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="El principito Antoine de Saint Exupery" alt="Portada de El principito">
+              <div class="book-info"><h4>El principito</h4><p>Antoine de Saint-Exupéry</p><span>Novelas</span></div>
+              <button class="save-book" data-save="El principito">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Filosofía</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Meditaciones Marco Aurelio libro" alt="Portada de Meditaciones">
+              <div class="book-info"><h4>Meditaciones</h4><p>Marco Aurelio</p><span>Filosofía</span></div>
+              <button class="save-book" data-save="Meditaciones">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Historia de la filosofia Will Durant" alt="Portada de Historia de la filosofía">
+              <div class="book-info"><h4>Historia de la filosofía</h4><p>Will Durant</p><span>Filosofía</span></div>
+              <button class="save-book" data-save="Historia de la filosofía">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Realismo mágico</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Cien años de soledad Gabriel Garcia Marquez" alt="Portada de Cien años de soledad">
+              <div class="book-info"><h4>Cien años de soledad</h4><p>Gabriel García Márquez</p><span>Realismo mágico</span></div>
+              <button class="save-book" data-save="Cien años de soledad">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="La casa de los espiritus Isabel Allende" alt="Portada de La casa de los espíritus">
+              <div class="book-info"><h4>La casa de los espíritus</h4><p>Isabel Allende</p><span>Realismo mágico</span></div>
+              <button class="save-book" data-save="La casa de los espíritus">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Comedia</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Don Quijote de la Mancha Miguel de Cervantes" alt="Portada de Don Quijote">
+              <div class="book-info"><h4>Don Quijote de la Mancha</h4><p>Miguel de Cervantes</p><span>Comedia</span></div>
+              <button class="save-book" data-save="Don Quijote de la Mancha">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Tres hombres en una barca Jerome K Jerome" alt="Portada de Tres hombres en una barca">
+              <div class="book-info"><h4>Tres hombres en una barca</h4><p>Jerome K. Jerome</p><span>Comedia</span></div>
+              <button class="save-book" data-save="Tres hombres en una barca">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Manga</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Berserk Kentaro Miura manga volume 1" alt="Portada de Berserk">
+              <div class="book-info"><h4>Berserk</h4><p>Kentaro Miura</p><span>Manga</span></div>
+              <button class="save-book" data-save="Berserk">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Death Note Tsugumi Ohba Takeshi Obata manga" alt="Portada de Death Note">
+              <div class="book-info"><h4>Death Note</h4><p>Tsugumi Ohba y Takeshi Obata</p><span>Manga</span></div>
+              <button class="save-book" data-save="Death Note">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Terror</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Dracula Bram Stoker book cover" alt="Portada de Drácula">
+              <div class="book-info"><h4>Drácula</h4><p>Bram Stoker</p><span>Terror</span></div>
+              <button class="save-book" data-save="Drácula">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Frankenstein Mary Shelley book cover" alt="Portada de Frankenstein">
+              <div class="book-info"><h4>Frankenstein</h4><p>Mary Shelley</p><span>Terror</span></div>
+              <button class="save-book" data-save="Frankenstein">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Ciencia ficción</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Dune Frank Herbert book cover" alt="Portada de Dune">
+              <div class="book-info"><h4>Dune</h4><p>Frank Herbert</p><span>Ciencia ficción</span></div>
+              <button class="save-book" data-save="Dune">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="1984 George Orwell book cover" alt="Portada de 1984">
+              <div class="book-info"><h4>1984</h4><p>George Orwell</p><span>Ciencia ficción</span></div>
+              <button class="save-book" data-save="1984">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Historia</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Sapiens Yuval Noah Harari book cover" alt="Portada de Sapiens">
+              <div class="book-info"><h4>Sapiens</h4><p>Yuval Noah Harari</p><span>Historia</span></div>
+              <button class="save-book" data-save="Sapiens">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Armas germenes y acero Jared Diamond" alt="Portada de Armas, gérmenes y acero">
+              <div class="book-info"><h4>Armas, gérmenes y acero</h4><p>Jared Diamond</p><span>Historia</span></div>
+              <button class="save-book" data-save="Armas, gérmenes y acero">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Educación</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Como leer un libro Mortimer Adler" alt="Portada de Cómo leer un libro">
+              <div class="book-info"><h4>Cómo leer un libro</h4><p>Mortimer J. Adler</p><span>Educación</span></div>
+              <button class="save-book" data-save="Cómo leer un libro">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="Los 7 habitos de la gente altamente efectiva Stephen Covey" alt="Portada de Los 7 hábitos">
+              <div class="book-info"><h4>Los 7 hábitos</h4><p>Stephen Covey</p><span>Educación</span></div>
+              <button class="save-book" data-save="Los 7 hábitos">♡</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-section">
+          <h3>Desarrollo personal</h3>
+          <div class="book-grid">
+            <article class="book-card">
+              <img data-book-query="Habitos atomicos James Clear book cover" alt="Portada de Hábitos atómicos">
+              <div class="book-info"><h4>Hábitos atómicos</h4><p>James Clear</p><span>Desarrollo personal</span></div>
+              <button class="save-book" data-save="Hábitos atómicos">♡</button>
+            </article>
+            <article class="book-card">
+              <img data-book-query="El poder del ahora Eckhart Tolle book cover" alt="Portada de El poder del ahora">
+              <div class="book-info"><h4>El poder del ahora</h4><p>Eckhart Tolle</p><span>Desarrollo personal</span></div>
+              <button class="save-book" data-save="El poder del ahora">♡</button>
+            </article>
+          </div>
+        </section>
+      </div>
+      <p id="noResults" hidden>No se encontraron libros.</p>
+    </section>
+
+    <!-- PUBLICAR -->
+    <section class="screen" id="publicar">
+      <div class="page-heading">
+        <span class="eyebrow">COMPARTE HISTORIAS</span>
+        <h2>Publicar un libro</h2>
+        <p>Comparte tus obras con la comunidad Nexus.</p>
+      </div>
+
+      <form id="publishForm" class="form-card">
+        <label for="bookTitle">Título del libro</label>
+        <input id="bookTitle" type="text" placeholder="Nombre del libro" required>
+
+        <label for="bookAuthor">Autor</label>
+        <input id="bookAuthor" type="text" placeholder="Nombre del autor" required>
+
+        <label for="bookCategory">Categoría</label>
+        <select id="bookCategory" required>
+          <option value="">Selecciona una categoría</option>
+          <option>Novelas</option>
+          <option>Filosofía</option>
+          <option>Realismo mágico</option>
+          <option>Comedia</option>
+          <option>Manga</option>
+          <option>Terror</option>
+          <option>Ciencia ficción</option>
+          <option>Historia</option>
+          <option>Educación</option>
+          <option>Desarrollo personal</option>
+          <option>Otros</option>
+        </select>
+
+        <label for="bookDescription">Descripción</label>
+        <textarea id="bookDescription" rows="4" placeholder="Describe tu libro..." required></textarea>
+
+        <label for="bookFile">Archivo PDF o EPUB</label>
+        <input id="bookFile" type="file" accept=".pdf,.epub,application/pdf,application/epub+zip" required>
+
+        <button class="primary-button" type="submit">Publicar libro</button>
+        <p class="form-message" id="publishMessage"></p>
+      </form>
+    </section>
+
+    <!-- MIS LIBROS -->
+    <section class="screen" id="mis-libros">
+      <div class="page-heading">
+        <span class="eyebrow">TU COLECCIÓN</span>
+        <h2>Mis libros</h2>
+        <p>Administra tus publicaciones y favoritos.</p>
+      </div>
+      <h3>Mis publicaciones</h3>
+      <div id="myBooks" class="book-grid"></div>
+      <h3>Mis favoritos</h3>
+      <div id="favoriteBooks" class="book-grid"></div>
+    </section>
+
+    <!-- PERFIL -->
+    <section class="screen" id="perfil">
+      <div class="page-heading">
+        <span class="eyebrow">TU ESPACIO</span>
+        <h2>Mi perfil</h2>
+      </div>
+      <div class="profile-card">
+        <div class="avatar" id="profileAvatar">N</div>
+        <h3 id="profileName">Invitado</h3>
+        <p id="profileEmail">Inicia sesión para acceder a tu cuenta.</p>
+        <button class="primary-button" id="profileAuthButton">Iniciar sesión / Registrarse</button>
+        <button class="secondary-button" id="logoutButton" hidden>Cerrar sesión</button>
+      </div>
+    </section>
+
+    <!-- LECTOR -->
+    <section class="screen" id="lector">
+      <div class="page-heading">
+        <button class="text-button" id="closeReader">← Volver</button>
+        <h2 id="readerTitle">Lector</h2>
+      </div>
+      <div id="readerContent" class="reader-content">
+        <p>Selecciona un libro para comenzar a leer.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- NAVEGACIÓN INFERIOR -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-go="inicio"><span>⌂</span>Inicio</button>
+    <button class="nav-item" data-go="explorar"><span>⌕</span>Explorar</button>
+    <button class="nav-item" data-go="publicar"><span>＋</span>Publicar</button>
+    <button class="nav-item" data-go="mis-libros"><span>▤</span>Mis libros</button>
+    <button class="nav-item" data-go="perfil"><span>◉</span>Perfil</button>
+  </nav>
+
+  <!-- AUTENTICACIÓN -->
+  <div class="modal" id="authModal" hidden>
+    <div class="modal-content">
+      <button class="modal-close" id="closeAuthModal">×</button>
+      <span class="eyebrow">NEXUS ACCOUNT</span>
+      <h2 id="authTitle">Iniciar sesión</h2>
+      <form id="authForm">
+        <label for="authEmail">Correo electrónico</label>
+        <input id="authEmail" type="email" placeholder="correo@ejemplo.com" required>
+        <label for="authPassword">Contraseña</label>
+        <input id="authPassword" type="password" placeholder="Tu contraseña" required minlength="6">
+        <button class="primary-button" type="submit" id="authSubmit">Entrar</button>
+        <p id="authMessage" class="form-message"></p>
+      </form>
+      <button class="text-button" id="toggleAuthMode">¿No tienes cuenta? Regístrate</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
